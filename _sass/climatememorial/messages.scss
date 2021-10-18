@@ -1,14 +1,38 @@
+$colors:#ffb2d4, #f0ffc0, 	#ffd3b6,#ffaaa5,#ff8b94,#dcedc1,#a8e6cf;
+
 .Memorial-Message-List{
-  display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-unit;
+  display: grid;
+  gap: $spacing-unit * 5;
   justify-content: space-around;
+  // align-items:center;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin: 0;
+  padding: $spacing-unit * 5;
   .Memorial-Message{
     list-style: none;
+    position: relative;
+    $offset: $spacing-unit * 1.5;
+    left: calc(var(--random) * #{$offset * 2 }  - #{$offset});
+    top:  calc(var(--random) * #{$offset * -2 } + #{$offset});
+
     &.Message{
-      box-shadow: 0 0 $rounding grey;
-      flex: 0 0 21%;
+      box-shadow: 0 0 $rounding gray;
       padding: $spacing-unit;
+      @for $i from 1 through length($message-colors){
+        $color: nth($message-colors, $i);
+        &.color-#{$i}{
+          background-color: rgba($color,0.5);
+        }
+      }
+      &.priority-3{
+        grid-row-end: span 2;
+      }
+      &.priority-2{
+        grid-row-end: span 3;
+      }
+      &.priority-1{
+        grid-row-end: span 4;
+      }
     }
   }
 }

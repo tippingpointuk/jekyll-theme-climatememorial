@@ -1,3 +1,4 @@
 ---
 ---
+$message-colors: {% for c in site.data.colors %}{{ c.name }}{% unless forloop.last %}, {% endunless %}{% endfor %};
 @import "climatememorial";

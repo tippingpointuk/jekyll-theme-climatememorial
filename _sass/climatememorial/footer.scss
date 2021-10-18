@@ -5,5 +5,8 @@ footer{
     max-width: $article-width;
     margin: 0 auto;
   }
-    color: $white;
+  > p{
+    text-align: center;
+  }
+  color: $white;
 }

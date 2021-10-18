@@ -6,12 +6,15 @@ airtable:
   messages:
     app: appPjgDjZYloVPKvw
     table: tblEB6MgZxlLLc1en
-    view: viwQ55Nv1WV9SyoKd
+    # view: viwQ55Nv1WV9SyoKd
+    view: viwxuUUcGWvSxB9BA
     fields:
       - Message
       - Image
       - Type
       - Priority
-
+  colors:
+    app: appPjgDjZYloVPKvw
+    table: tblyC4sOUmryLQt8R
 plugins:
   - jekyll-airtable-import

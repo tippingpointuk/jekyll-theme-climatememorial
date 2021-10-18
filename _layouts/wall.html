@@ -2,8 +2,18 @@
 layout: default
 ---
 <embed class="hide" src="/assets/sound/nevergonnagiveyouup.mp3" autostart>
+
 <ul class="Memorial-Message-List">
+  {% assign num_colors = site.data.colors.size %}
   {% for m in site.data.messages %}
-  <li class="Memorial-Message {{ m.type }}" priority={{ m.priority }}>{{ m.message }}</li>
+  {% assign random = 1 | random %}
+  <li
+  class="Memorial-Message
+    {{ m.type }}
+    priority-{{ m.priority }}
+    color-{{ random | times: num_colors | ceil }}"
+  style="--random: {{ random | times: 2 }};--random-int: {{ random | times: 3 | ceil }};">{{ m.message }}</li>
   {% endfor %}
 </ul>
+
+<div class="Floating-Button"><a href="https://example.com">Add to wall</a></div>
