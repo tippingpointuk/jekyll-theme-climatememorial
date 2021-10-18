@@ -1,0 +1,17 @@
+title: Lloyds Climate Memorial
+
+permalink: pretty
+
+airtable:
+  messages:
+    app: appPjgDjZYloVPKvw
+    table: tblEB6MgZxlLLc1en
+    view: viwQ55Nv1WV9SyoKd
+    fields:
+      - Message
+      - Image
+      - Type
+      - Priority
+
+plugins:
+  - jekyll-airtable-import

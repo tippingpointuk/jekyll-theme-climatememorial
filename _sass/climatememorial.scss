@@ -1,0 +1,25 @@
+// Spacing and dimentions
+$article-width: 600px !default;
+$spacing-unit: 10px;
+$rounding: 5px;
+
+// Fonts
+$header-font-stack: 'Permanent Marker', sans-serif !default;
+$body-font-stack: 'Kalam',sans-serif !default;
+
+$base-font-size: 12px !default;
+
+// Colors
+$background-color: white !default;
+
+$brand-color: red !default;
+$brand-color-dark: darken($brand-color, 10%);
+$brand-text-color: white !default;
+
+$accent-color: blue !default;
+$accent-color-dark: darken($accent-color , 10%);
+$accent-text-color: white !default;
+
+$text-color: black;
+
+@import "climatememorial/base";
