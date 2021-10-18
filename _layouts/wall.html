@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<embed src="/assets/sound/nevergonnagiveyouup.mp3" autostart>
+<embed class="hide" src="/assets/sound/nevergonnagiveyouup.mp3" autostart>
 <ul class="Memorial-Message-List">
   {% for m in site.data.messages %}
   <li class="Memorial-Message {{ m.type }}" priority={{ m.priority }}>{{ m.message }}</li>

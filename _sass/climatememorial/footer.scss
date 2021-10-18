@@ -1,0 +1,9 @@
+footer{
+  background-color: $black;
+  padding: $spacing-unit;
+  > *{
+    max-width: $article-width;
+    margin: 0 auto;
+  }
+    color: $white;
+}

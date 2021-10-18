@@ -10,7 +10,10 @@ $body-font-stack: 'Kalam',sans-serif !default;
 $base-font-size: 12px !default;
 
 // Colors
-$background-color: white !default;
+$white: white;
+$black: black;
+
+$background-color: $white !default;
 
 $brand-color: red !default;
 $brand-color-dark: darken($brand-color, 10%);
@@ -22,4 +25,6 @@ $accent-text-color: white !default;
 
 $text-color: black;
 
-@import "climatememorial/base";
+@import "climatememorial/base",
+"climatememorial/footer",
+"climatememorial/messages";

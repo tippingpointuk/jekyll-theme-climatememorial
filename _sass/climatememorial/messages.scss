@@ -1,0 +1,14 @@
+.Memorial-Message-List{
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-unit;
+  justify-content: space-around;
+  .Memorial-Message{
+    list-style: none;
+    &.Message{
+      box-shadow: 0 0 $rounding grey;
+      flex: 0 0 21%;
+      padding: $spacing-unit;
+    }
+  }
+}
