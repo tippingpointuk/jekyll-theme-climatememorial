@@ -7,13 +7,14 @@ $colors:#ffb2d4, #f0ffc0, 	#ffd3b6,#ffaaa5,#ff8b94,#dcedc1,#a8e6cf;
   // align-items:center;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   margin: 0;
+  $gap-multiply: 5;
   padding: $spacing-unit * 5;
   .Memorial-Message{
     list-style: none;
     position: relative;
-    $offset: $spacing-unit * 1.5;
-    left: calc(var(--random) * #{$offset * 2 }  - #{$offset});
-    top:  calc(var(--random) * #{$offset * -2 } + #{$offset});
+    $offset: $spacing-unit * 2.5;
+    left: calc(var(--random) * #{$offset }  - #{$offset /2});
+    top:  calc(var(--random) * #{$offset * -1 } + #{$offset /2});
 
     &.Message{
       box-shadow: 0 0 $rounding gray;
