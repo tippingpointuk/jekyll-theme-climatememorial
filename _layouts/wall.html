@@ -7,13 +7,32 @@ layout: default
   {% assign num_colors = site.data.colors.size %}
   {% for m in site.data.messages %}
   {% assign random = 1 | random %}
+  {% assign words = m.message | split: " " %}
   <li
   class="Memorial-Message
     {{ m.type }}
     priority-{{ m.priority }}
     color-{{ random | times: num_colors | ceil }}"
-  style="--random: {{ random | times: 2 }};--random-int: {{ random | times: 3 | ceil }};">{{ m.message }}</li>
+  style="
+    --random: {{ random | times: 2 }};
+    --random-int: {{ random | times: 3 | ceil }};
+    --charactors: {{ m.message.size }};
+    --charactors-root: {% if m.message %}{{ m.message.size | sqroot }}{% endif %};
+    --words: {{ words.size }};
+    --priority: {{ m.priority | default: 5 }};
+    --priority-root: {{ m.priority | default: 5 | sqroot  }};
+    ">
+      {% if m.type == "Message" %}
+      {{ m.message }}
+      {% elsif m.type == "Quote" %}
+      <blockquote>
+        <h2>{{ m.message }}</h2>
+      </blockquote>
+      {% elsif m.type == "Image" %}
+        <img src="{{m.image}}" alt="{{m.message}}">
+      {% endif %}
+    </li>
   {% endfor %}
 </ul>
 
-<div class="Floating-Button"><a href="https://example.com">Add to wall</a></div>
+<a href="https://airtable.com/shrwmNOSNvt4A0G4j"><div class="Floating-Button button">Add to wall</div></a>

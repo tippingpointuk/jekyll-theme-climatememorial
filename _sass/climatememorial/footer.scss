@@ -1,6 +1,8 @@
 footer{
   background-color: $black;
   padding: $spacing-unit;
+  z-index: 10;
+  position: relative;
   > *{
     max-width: $article-width;
     margin: 0 auto;

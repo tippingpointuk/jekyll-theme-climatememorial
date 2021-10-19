@@ -63,7 +63,7 @@ code, pre{
 }
 
 // Form
-button,input[type=submit],input[type=reset]{
+button,input[type=submit],input[type=reset],.button{
   border: 0;
   background-color: $brand-color;
   border-radius: $rounding;
@@ -102,6 +102,10 @@ table{
   }
 }
 
+
+img{
+    width: 100%;
+}
 
 hr {
   border: 0;

@@ -1,0 +1,13 @@
+.Floating-Button {
+  position: fixed;
+  bottom: $spacing-unit * 2;
+  right: $spacing-unit * 2;
+  box-shadow: 0 0 $rounding grey;
+  padding:  $spacing-unit * 2;
+  border-radius: 50%;
+  z-index: 9;
+  a {
+    color: $brand-text-color;
+    text-decoration: none;
+  }
+}
