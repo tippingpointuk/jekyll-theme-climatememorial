@@ -1,0 +1,10 @@
+main.background{
+  background-color: rgba($background-color, 0.8);
+}
+article.home {
+  max-width: $article-width * 1.5;
+  text-align: center;
+  h1:first-child{
+    color: $brand-color;
+  }
+}

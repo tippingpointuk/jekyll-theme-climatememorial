@@ -9,10 +9,16 @@ html,body{
   box-sizing: border-box;
   font-size: $base-font-size * 1.5;
 }
+body{
+  background-position: top;
+  background-size: contain;
+}
 article{
   max-width: $article-width;
   margin: 0 auto;
   line-height: 1.5;
+  padding: $spacing-unit;
+
 }
 h1,h2,h3,h4,h5,h6{
   font-family: $header-font-stack;

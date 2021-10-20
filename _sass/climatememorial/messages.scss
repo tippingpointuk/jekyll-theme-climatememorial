@@ -10,7 +10,7 @@
   .Memorial-Message{
     list-style: none;
     position: relative;
-    $offset: $spacing-unit * $gap-multiply / 2;
+    $offset: $spacing-unit * $gap-multiply / 2.2;
     left: calc(var(--random) * #{$offset }  - #{$offset /2});
     top:  calc(var(--random) * #{$offset * -1 } + #{$offset /2});
     --rows: 1;
@@ -28,11 +28,16 @@
     }
     grid-row-end: span var(--rows);
     grid-column-end: span var(--columns);
+
     @for $i from 1 through length($message-colors){
       $color: nth($message-colors, $i);
+      $color-light: rgba($color,50%);
+
       &.color-#{$i}{
         &.Message{
-          background-color: rgba($color,0.5);
+          background:
+          	linear-gradient(calc( var(--random) * 100deg ), $color, rgba($color,0.2)),
+          	url(/assets/thing.svg), $background-color;
         }
         blockquote{
           border-left-color: $color;
@@ -41,7 +46,7 @@
     }
 
     &.Message{
-      box-shadow: 0 0 $rounding gray;
+      box-shadow: 2px 2px $rounding gray;
       padding: $spacing-unit;
 
       $font-linear-scaler: 10;
@@ -52,6 +57,6 @@
     &.Quote{
 
     }
-    
+
   }
 }

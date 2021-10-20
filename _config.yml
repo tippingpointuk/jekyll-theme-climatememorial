@@ -1,4 +1,11 @@
 title: Lloyds Climate Memorial
+description:
+tagline:
+
+# Theme colours
+background_color: "#FFF0E3"
+brand_color: "#DD0000"
+accent_color: "#DD0000"
 
 permalink: pretty
 
@@ -6,15 +13,17 @@ airtable:
   messages:
     app: appPjgDjZYloVPKvw
     table: tblEB6MgZxlLLc1en
-    # view: viwQ55Nv1WV9SyoKd
-    view: viwxuUUcGWvSxB9BA
+    view: viwQ55Nv1WV9SyoKd
+    # view: viwxuUUcGWvSxB9BA
     fields:
       - Message
       - Image
       - Type
       - Priority
+      - Name
   colors:
     app: appPjgDjZYloVPKvw
     table: tblyC4sOUmryLQt8R
+
 plugins:
   - jekyll-airtable-import
