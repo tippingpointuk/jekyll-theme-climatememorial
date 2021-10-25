@@ -1,0 +1,10 @@
+---
+---
+{
+  "messages": [
+    {% for m in site.data.messages_latlon %}
+    {{ m | jsonify }}
+    {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}

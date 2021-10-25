@@ -29,34 +29,82 @@
 }
 
 .social-links {
-    .link {
-        text-decoration: none;
+  .link {
+    text-decoration: none;
+    svg {
+      transition: 0.2s;
+      fill: $brand-text-color;
+      height: 38px;
 
-        svg {
-            transition: 0.2s;
-            fill: $brand-text-color;
-            height: 38px;
-
-            &:hover{
-              fill: $brand-color;
-              path:not(.circle), .st0 {
-                    fill: $brand-text-color;
-                    &.outline{
-                      fill: none;
-                      stroke: $brand-text-color;
-                    }
-                }
-            }
-
-            path:not(.circle), .st0 {
-              fill: invert($brand-text-color);
-              &.outline{
-                fill: none;
-                stroke: invert($brand-text-color);
-                stroke-width: 6px;
-              }
-            }
+      &:hover{
+        fill: $brand-color;
+        path:not(.circle), .st0 {
+          fill: $brand-text-color;
+          &.outline{
+            fill: none;
+            stroke: $brand-text-color;
+          }
         }
-    }
+      }
 
+      path:not(.circle), .st0 {
+        fill: invert($brand-text-color);
+        &.outline{
+          fill: none;
+          stroke: invert($brand-text-color);
+          stroke-width: 6px;
+        }
+      }
+    }
+  }
+}
+.Flex-Line{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+
+// .Message-Map-Container{
+//   display: flex;
+  #Message-Map{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+// }
+
+.printable-list{
+  .message{
+    list-style: none;
+    font-size: 10pt;
+    &:nth-child(6n){
+      break-after: page;
+    }
+    &:nth-child(odd){
+      text-align: right;
+    }
+  }
+}
+.Memorial-Map-Container{
+  width: 100%;
+  height: 100vh;
+  .Memorial-Map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+    width: 100%;
+    height: 100vh;
+  }
+  .Flex-Line {
+    position: absolute;
+    bottom: 5 * $spacing-unit;
+    z-index: 10;
+    width: 100%;
+  }
 }

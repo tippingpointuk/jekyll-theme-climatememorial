@@ -1,0 +1,8 @@
+---
+layout: page
+---
+<div class="printable-list" >
+{% for m in site.data.messages limit:1000 %}
+<p class=message>{{ m.message }}</p>
+{% endfor %}
+</div>

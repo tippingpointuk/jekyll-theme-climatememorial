@@ -1,63 +1,34 @@
 ---
 layout: default
 ---
-<!-- <embed class="hide" src="/assets/sound/nevergonnagiveyouup.mp3" autostart> -->
+<header class="nav-visible">
+  <audio class="Soundscape-Player"  controls autoplay muted>
+   <source src="{{ page.soundscape | relative_url }}" type="audio/mpeg">
+   Browser does not support audio
+  </audio>
+</header>
+<div class="Memorial-Map-Container">
+  {% include map.html %}
+  {{ page.buttons | buttonify }}
+</div>
 <main class="
   {% if page.background_image %}background{% endif %}
-">
-  <audio class="Soundscape-Player"  controls autoplay muted>
-   <source src="/assets/sound/nevergonnagiveyouup.mp3" type="audio/mpeg">
-  Browser does not support audio
-  </audio>
-  <article class="home">
-    {{ content }}
-    {% include share-links.html page=site %}
-  </article>
-  <ul class="Memorial-Message-List">
-    {% assign num_colors = site.data.colors.size %}
-    {% for m in site.data.messages %}
-    {% assign random = 1 | random %}
-    {% assign words = m.message | split: " " %}
-    <li
-    class="Memorial-Message
-      {{ m.type }}
-      priority-{{ m.priority }}
-      color-{{ random | times: num_colors | ceil }}"
-    style="
-      --random: {{ random | times: 2 }};
-      --random-int: {{ random | times: 3 | ceil }};
-      --charactors: {{ m.message.size }};
-      --charactors-root: {% if m.message %}{{ m.message.size | sqroot }}{% endif %};
-      --words: {{ words.size }};
-      --priority: {{ m.priority | default: 5 }};
-      --priority-root: {{ m.priority | default: 5 | sqroot  }};
-      ">
-        {% if m.type == "Message" %}
-          {% if m.image %}<img src="{{m.image}}" alt="{{m.message}}">{% endif %}
-          <div class="text">
-            {{ m.message }}
-            {% if m.name %}
-            <ul class="author">
-              <li>{{m.name}}
-            </ul>
-            {% endif %}
-          </div>
-        {% elsif m.type == "Quote" %}
-        <blockquote>
-          <h2>{{ m.message }}</h2>
-        </blockquote>
-        {% elsif m.type == "Image" %}
-        <img src="{{m.image}}" alt="{{m.message}}">
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
+" id="content"
+style="{% if page.background_image.size > 0 %}
+  background-image: url('{{ page.background_image | relative_url }}');
+  {% endif %}">
 
-  <a href="https://airtable.com/shrwmNOSNvt4A0G4j" target="_blank"><div class="Floating-Button right button">
+
+  <article class="home">
+    <h1>{{ page.title }}</h1>
+    {% include share-links.html page=site %}
+    {{ content }}
+  </article>
+  <!-- <a href="https://airtable.com/shrwmNOSNvt4A0G4j" target="_blank"><div class="Floating-Button right button">
     <svg viewBox="0 0 100 100" width=30px height=30px>
       <line x1="10" y1="50" x2="90" y2="50"/>
       <line x1="50" y1="10" x2="50" y2="90"/>
     </svg>
   </div></a>
-<a href="{{ "/about" | relative_url }}"><div class="Floating-Button left button">&#9432;</div></a>
+<a href="{{ "/about" | relative_url }}"><div class="Floating-Button left button">&#9432;</div></a> -->
 </main>

@@ -9,6 +9,9 @@ html,body{
   box-sizing: border-box;
   font-size: $base-font-size * 1.5;
 }
+html {
+      scroll-behavior: smooth;
+}
 body{
   background-position: top;
   background-size: contain;
@@ -120,4 +123,9 @@ hr {
 
 .hide{
   display: none;
+}
+@media print {
+  footer, header, .no-print{
+    display: none;
+  }
 }

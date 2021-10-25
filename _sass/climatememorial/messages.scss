@@ -7,6 +7,8 @@
   margin: 0;
   $gap-multiply: 5;
   padding: $spacing-unit * $gap-multiply;
+  overflow: hidden visible;
+
   .Memorial-Message{
     list-style: none;
     position: relative;

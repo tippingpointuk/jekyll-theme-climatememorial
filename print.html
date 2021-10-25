@@ -1,0 +1,11 @@
+---
+layout: post
+title: Messages to Lloyds of London
+---
+{% for m in site.data.messages %}
+<hr>
+<blockquote cite="{{ m.name }}, {{ m.country }}">
+  <p>{{ m.message }}</p>
+</blockquote>
+<cite>{{ m.name }}{% if m.country %}, {{ m.country }}{% endif %}<cite>
+{% endfor %}

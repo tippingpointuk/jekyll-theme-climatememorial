@@ -2,6 +2,7 @@
 $article-width: 600px !default;
 $spacing-unit: 10px;
 $rounding: 5px;
+$nav-height: 50px;
 
 // Fonts
 $header-font-stack: 'Permanent Marker', sans-serif !default;
@@ -14,5 +15,6 @@ $base-font-size: 12px !default;
 @import "climatememorial/base",
   "climatememorial/content",
   "climatememorial/footer",
+  "climatememorial/header",
   "climatememorial/messages",
   "climatememorial/components";

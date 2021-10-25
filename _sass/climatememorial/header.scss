@@ -1,0 +1,11 @@
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: 0.5s;
+  &.nav-hide{
+    top: -1 * $nav-height;
+  }
+}
