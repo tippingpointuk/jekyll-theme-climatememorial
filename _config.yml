@@ -25,6 +25,8 @@ accent_color: "#DD0000"
 invert_brand_text: true
 invert_accent_text: true
 
+image: /assets/images/og-image.png
+
 permalink: pretty
 
 include:
