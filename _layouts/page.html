@@ -1,7 +1,11 @@
 ---
 layout: default
 ---
+{% include header.html %}
 <main>
+  {% for block in page.blocks %}
+  {% include blocks/{{block.type}}.html block=block %}
+  {% endfor %}
   {{ content }}
 </main>
 <footer>{% include footer.html %}</footer>

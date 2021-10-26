@@ -1,0 +1,9 @@
+<div class="Text-Block ">
+  <article class="Text">
+    {{ include.block.text | liquify | markdownify }}
+    {{ include.block.buttons | buttonify }}
+  </article>
+  {% if include.block.image.size > 0 %}
+  <div class="Image" style="background-image: url('{{ include.block.image | relative_url }}')"></div>
+  {% endif %}
+</div>

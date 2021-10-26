@@ -4,6 +4,39 @@
 {% capture colors %}{% for c in site.data.colors %}{{ c.name }}{% unless forloop.last %}, {% endunless %}{% endfor %}{% endcapture %}
 $message-colors: {{ colors | default: "#ffb2d4,#f0ffc0,#ffd3b6,#ffaaa5,#ff8b94,#dcedc1,#a8e6cf" }};
 
+// Standard colours
+$black-color:       #111 !default;
+$white-color:       #fdfdfd !default;
+$shadow-color:     #222;
+$grey-color:       #828282 !default;
+$grey-color-light: lighten($grey-color, 40%) !default;
+$grey-color-dark:  darken($grey-color, 25%) !default;
+
+
+// $text-color:  {{ site.brand_color | default: "#DD0000" }} !default;
+$text-color:       $black-color !default;
+
+{% if site.invert_brand_text %}
+    $brand-text-color: $white-color !default;
+    $brand-text-color-invert: $black-color !default;
+{% else %}
+    $brand-text-color: $black-color !default;
+    $brand-text-color-invert: $white-color !default;
+{% endif %}
+
+{% if site.invert_accent_text %}
+    $accent-text-color: $white-color !default;
+{% else %}
+    $accent-text-color: $black-color !default;
+{% endif %}
+
+$brand-color:       {{ site.brand_color | default: "#DD0000" }} !default;
+$brand-color-dark: darken($brand-color, 15%) !default;
+$accent-color:      {{ site.accent_color | default: "#DD0000" }} !default;
+$accent-color-dark: darken($accent-color, 15%) !default;
+$text-color-light: lighten($text-color, 18%);
+$background-color: {{ site.background_color | default: "$white-color" }} !default;
+
 // COLORS //
 
 // Standard
@@ -12,17 +45,27 @@ $black: black;
 $red: red;
 $blue: blue;
 
-$background-color: {{ site.background_color | default: "$white" }} !default;
-@debug $background-color;
+// $background-color: {{ site.background_color | default: "$white" }} !default;
+// @debug $background-color;
+//
+// $brand-color: {{ site.brand_color | default: "$red" }} !default;
+// $brand-color-dark: darken($brand-color, 10%);
+// $brand-text-color: white !default;
+//
+// $accent-color:  {{ site.accent_color | default: "$blue" }} !default;
+// $accent-color-dark: darken($accent-color , 10%);
+// $accent-text-color: white !default;
+//
+// $text-color: black;
 
-$brand-color: {{ site.brand_color | default: "$red" }} !default;
-$brand-color-dark: darken($brand-color, 10%);
-$brand-text-color: white !default;
-
-$accent-color:  {{ site.accent_color | default: "$blue" }} !default;
-$accent-color-dark: darken($accent-color , 10%);
-$accent-text-color: white !default;
-
-$text-color: black;
+{% if site.brand_color == site.accent_color %}
+  $desktop-header-background-color: $background-color;
+  $desktop-header-text-color: $text-color;
+  $desktop-header-text-color-invert: $brand-color;
+{% else %}
+  $desktop-header-background-color: $brand-color;
+  $desktop-header-text-color: $brand-text-color;
+  $desktop-header-text-color-invert: $brand-text-color-invert;
+{% endif %}
 
 @import "climatememorial";

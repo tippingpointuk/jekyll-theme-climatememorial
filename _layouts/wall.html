@@ -7,10 +7,9 @@ layout: default
    Browser does not support audio
   </audio>
 </header>
-<div class="Memorial-Map-Container">
-  {% include map.html %}
-  {{ page.buttons | buttonify }}
-</div>
+{% for block in page.blocks %}
+{% include blocks/{{block.type}}.html block=block %}
+{% endfor %}
 <main class="
   {% if page.background_image %}background{% endif %}
 " id="content"

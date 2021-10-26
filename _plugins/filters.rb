@@ -13,6 +13,8 @@ module Jekyll
   end
   module Buttons
     def buttonify(input)
+      return unless input.is_a?(Array)
+      return unless input.length() > 0
       o = "<div class='Flex-Line'>"
       input.each do |b|
         o += "<a href='#{b['target']}'><div class='button'>#{b['text']}</div></a>"

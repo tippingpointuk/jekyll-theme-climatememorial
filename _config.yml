@@ -9,23 +9,11 @@ accent_color: "#DD0000"
 
 permalink: pretty
 
-# Tables to import from Airtable. Make sure AIRTABLE_API_KEY available in
-# environment
 airtable:
-  # messages:
-  #   app: appPjgDjZYloVPKvw
-  #   table: tblEB6MgZxlLLc1en
-  #   view: viwQ55Nv1WV9SyoKd
-  #   # view: viwxuUUcGWvSxB9BA
-  #   fields:
-  #     - Message
-  #     - Image
-  #     - Type
-  #     - Priority
-  #     - Name
-  colors:
+  images:
     app: appPjgDjZYloVPKvw
-    table: tblyC4sOUmryLQt8R
+    table: tblxcxR5AIWrFIHKy
+    view: viwpmRi657GTVzwz9
 
 plugins:
   - jekyll-airtable-import

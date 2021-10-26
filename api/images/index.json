@@ -1,8 +1,8 @@
 ---
 ---
 {
-  "messages": [
-    {% for m in site.data.messages %}
+  "images": [
+    {% for m in site.data.images %}
     {{ m | jsonify }}
     {% unless forloop.last %},{% endunless %}
     {% endfor %}

@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<div class="Memorial-Carousel main-carousel">
+{% for item in site.data.images %}
+{% if item.images[0].size > 1 %}
+{% for image in item.images %}
+  <img  class="carousel-cell" data-flickity-lazyload="{{ image }}" alt="{{ item.name }}">
+{% endfor %}
+{% else %}
+  <img    class="carousel-cell"  data-flickity-lazyload="{{ item.images }}" alt="{{ item.name }}">
+{% endif %}
+{% endfor %}
+</div>
+<script type="text/javascript">
+  var flkty = new Flickity( '.Memorial-Carousel', {
+    groupCells: true,
+    autoPlay: 5000,
+    lazyLoad: 2,
+    imagesLoaded: true,
+    // initialIndex: 2,
+    cellAlign: 'left'
+  });
+</script>

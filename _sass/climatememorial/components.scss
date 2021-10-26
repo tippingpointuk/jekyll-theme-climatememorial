@@ -90,21 +90,39 @@
     }
   }
 }
-.Memorial-Map-Container{
-  width: 100%;
-  height: 100vh;
-  .Memorial-Map {
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 0;
-    width: 100%;
-    height: 100vh;
+
+
+.Memorial-Carousel{
+  height: calc(min(70vh,400px));
+  img{
+    height: 100%;
+    width: auto;
   }
-  .Flex-Line {
-    position: absolute;
-    bottom: 5 * $spacing-unit;
-    z-index: 10;
-    width: 100%;
+}
+
+.Floating-Box{
+  background-color: $background-color;
+  box-shadow: 0 0 15px grey;
+  margin: 15px;
+  padding: 0 $spacing-unit;
+}
+
+
+.Text-Block {
+  .Image{
+    background: $background-color no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    @media screen and (max-width: $article-width){
+      height: 30vh;
+    }
+  }
+  @media screen and (min-width: $article-width){
+    display: flex;
+    > * {
+      flex: 0 0 50%;
+    }
   }
 }
