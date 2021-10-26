@@ -19,6 +19,8 @@
     z-index: 10;
     color: $brand-color;
     text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
     a {
         font-weight: normal;
     }

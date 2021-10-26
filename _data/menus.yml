@@ -1,5 +1,3 @@
 header:
-  - url: /about
-    title: About
   - url: /add
-    title: Add to wall
+    title: Send your message

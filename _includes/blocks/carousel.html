@@ -2,13 +2,21 @@
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <div class="Memorial-Carousel main-carousel">
 {% for item in site.data.images %}
+
 {% if item.images[0].size > 1 %}
-{% for image in item.images %}
-  <img  class="carousel-cell" data-flickity-lazyload="{{ image }}" alt="{{ item.name }}">
-{% endfor %}
-{% else %}
-  <img    class="carousel-cell"  data-flickity-lazyload="{{ item.images }}" alt="{{ item.name }}">
+  {% for image in item.images %}
+    <img  class="carousel-cell" data-flickity-lazyload="{{ image }}" alt="{{ item.name }}">
+  {% endfor %}
+{% elsif item.images.size > 0 %}
+  <img class="carousel-cell"  data-flickity-lazyload="{{ item.images }}" alt="{{ item.name }}">
 {% endif %}
+
+{% if item.youtube.size > 0 %}
+<div class="carousel-cell">
+  {% youtube item.youtube %}
+</div>
+{% endif %}
+
 {% endfor %}
 </div>
 <script type="text/javascript">

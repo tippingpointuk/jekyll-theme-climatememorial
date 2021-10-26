@@ -4,9 +4,15 @@
   {% include header/desktop.html %}
 
   {% if page.soundscape %}
-  <audio class="Soundscape-Player"  controls autoplay muted>
+  <audio class="Soundscape-Player"  controls>
    <source src="{{ page.soundscape | relative_url }}" type="audio/mpeg">
    Browser does not support audio
   </audio>
+  <script type="text/javascript">
+    var soundscape = document.getElementsByClassName("Soundscape-Player")[0]
+    window.onload = function(){
+      soundscape.play()
+    }
+  </script>
   {% endif %}
 </header>

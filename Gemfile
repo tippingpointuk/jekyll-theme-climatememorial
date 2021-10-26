@@ -2,7 +2,12 @@
 
 source "https://rubygems.org"
 
-gem "jekyll-airtable-import", path: "/home/joe/Documents/Work/TippingPointUK/jekyll-airtable-import"
+group :jekyll_plugins do
+  gem "jekyll-youtube"
+  gem "jekyll-airtable-import", git: "https://github.com/tippingpointuk/jekyll-airtable-import/", branch: "v0.1.1"
+  gem "jekyll-menus"
+  gem "jekyll-seo-tag"
+end
 
 gem "csv"
 

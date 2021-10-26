@@ -94,7 +94,10 @@
 
 .Memorial-Carousel{
   height: calc(min(70vh,400px));
-  img{
+  .carousel-cell{
+    &:not(img){
+      width: 640px;
+    }
     height: 100%;
     width: auto;
   }
@@ -109,6 +112,34 @@
 
 
 .Text-Block {
+  background: $background-color no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  &.full{
+    min-height: 100vh;
+    .Text{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      article{
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-unit * 2;
+      }
+    }
+  }
+  .Text{
+    width: 100%;
+    background-color: rgba($background-color, 0.4);
+    article{
+      text-align: center;
+      background-color: rgba($background-color, 0.8);
+      box-shadow: 0 0 30px $background-color;
+      border-radius: 30px;
+    }
+  }
   .Image{
     background: $background-color no-repeat center center;
     -webkit-background-size: cover;
@@ -121,7 +152,7 @@
   }
   @media screen and (min-width: $article-width){
     display: flex;
-    > * {
+    &.split > * {
       flex: 0 0 50%;
     }
   }

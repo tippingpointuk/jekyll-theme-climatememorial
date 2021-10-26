@@ -1,11 +1,14 @@
 main.background{
   background-color: rgba($background-color, 0.8);
+  padding-top: $action-bar-height;
 }
 article {
-  &:first-child{
-    padding-top: $nav-height;
-  }
+  padding-bottom: 5 * $spacing-unit;
   h1:first-child{
     color: $brand-color;
   }
+}
+
+body{
+  line-height: $base-line-height;
 }

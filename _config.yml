@@ -1,13 +1,34 @@
 title: Lloyds Climate Memorial
-description:
-tagline:
+summary: A memorial for every person harmed by the injustices of the climate crisis. Join the memorial.
+description: |-
+  Through this memorial we will bring to life the memories of every person
+  harmed by the injustices of the climate crisis. We’ve laid wreaths naming
+  climate wrecking projects we want Lloyd’s of London to rule out underwriting,
+  and help to prevent billions of lives being destroyed by climate impacts.
+  Lloyd’s needs to stop ignoring the climate science and communities being
+  effected by climate breakdown. Thousands of people across the world have
+  messages - join the memorial.
+tagline: Remember. Rise. Resist.
+
+footer: |-
+  This page is created by [Coal Action Network](https://www.coalaction.org.uk/).
+
+  Coal Action Network works for an end to coal use in power generation and
+  steel production; coal extraction and coal imports in the UK, and for justice
+  for communities affected by the UK's current and historical coal consumption
+  and mining.
 
 # Theme colours
 background_color: "#FFF0E3"
 brand_color: "#DD0000"
 accent_color: "#DD0000"
+invert_brand_text: true
+invert_accent_text: true
 
 permalink: pretty
+
+include:
+  - _redirects
 
 airtable:
   images:
@@ -17,3 +38,6 @@ airtable:
 
 plugins:
   - jekyll-airtable-import
+  - jekyll-youtube
+  - jekyll-menus
+  - jekyll-seo-tag

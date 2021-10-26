@@ -5,7 +5,8 @@ footer{
   position: relative;
   > *{
     max-width: $article-width;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
   }
   > p{
     text-align: center;
