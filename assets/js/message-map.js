@@ -76,6 +76,7 @@ function buildMap(){
   }
   markerCluster.addTo(messageMap);
   messageListElement.innerHTML = getMessagesListHtml(messagesData);
+  messageMap.fitBounds(markerCluster.getBounds());
 }
 
 function getVisablePoints(bounds){
