@@ -68,14 +68,7 @@
 
 // .Message-Map-Container{
 //   display: flex;
-  #Message-Map{
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    z-index: 1;
-  }
+
 // }
 
 .printable-list{
@@ -103,12 +96,7 @@
   }
 }
 
-.Floating-Box{
-  background-color: $background-color;
-  box-shadow: 0 0 15px grey;
-  margin: 15px;
-  padding: 0 $spacing-unit;
-}
+
 
 
 .Text-Block {

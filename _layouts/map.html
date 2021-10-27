@@ -3,7 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Map | {{ site.title }}</title>
+    {% unless page.external %}
     {% include head.html %}
+    {% else %}
+    <link rel="stylesheet" href="/assets/css/map.css">
+    {% endunless %}
+
     <!-- Leaflet Mapping -->
     <link rel="stylesheet" href="{{ "/assets/css/MarkerCluster.Default.css" | relative_url }}">
     <link rel="stylesheet" href="{{ "/assets/css/MarkerCluster.css" | relative_url }}">
@@ -26,7 +31,7 @@
     </div>
     <script src="{{ '/assets/js/message-map.js' | relative_url }}"></script>
     <script type="text/javascript">
-      var messagesCsvUrl = "{{ site.messages_csv }}";
+      var messagesCsvUrl = "{{ page.messages_csv | default: site.messages_csv }}";
       let messagesData;
 
       Papa.parse(messagesCsvUrl, {
@@ -40,6 +45,5 @@
       	}
       });
     </script>
-
   </body>
 </html>
