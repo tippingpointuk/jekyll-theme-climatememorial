@@ -55,6 +55,7 @@ var markerCluster = L.markerClusterGroup({
 var messageListElement = document.getElementsByClassName("Message-List")[0]
 
 function buildMap(){
+  console.log(messagesData)
   for (i in messagesData){
     var locationString = messagesData[i]["location"];
     if (locationString == ""){
