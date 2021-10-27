@@ -28,6 +28,8 @@ invert_accent_text: true
 
 image: /assets/images/og-image.png
 
+messages_csv: https://docs.google.com/spreadsheets/d/e/2PACX-1vSJNLN6IpzoTwMg_MsfczbbgAu70Fn0e5j1WFUmVaaKtx1wt0otiWknpahyDLFDgjpnP9q2MKL3RLNw/pub?gid=0&single=true&output=csv
+
 permalink: pretty
 
 include:

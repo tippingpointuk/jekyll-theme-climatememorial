@@ -1,5 +1,5 @@
-console.log(messagesData);
 const MAX_MESSAGES = 100;
+
 var messageMap = L.map("Message-Map",{
                     center: [10,0],
                     crs: L.CRS.EPSG3857,
@@ -7,6 +7,7 @@ var messageMap = L.map("Message-Map",{
                     zoomControl: true,
                     preferCanvas: false,
                 });
+
 var customMarker = L.icon({
     iconUrl: "/assets/images/fist_pointer_shadow.png",
     shadowUrl: "/assets/images/red_fist_marker.png",
@@ -36,6 +37,8 @@ var titleLayer = L.tileLayer(
     "minZoom": 2,
     "noWrap": false,
     "opacity": 1,
+    "updateWhenZooming": false,
+    "updateWhenIdle": true,
     // "subdomains": "abc",
     "tms": false,
     // "bounds": [
@@ -51,16 +54,29 @@ var markerCluster = L.markerClusterGroup({
 
 var messageListElement = document.getElementsByClassName("Message-List")[0]
 
-for (i in messagesData){
-  var pointerLocation = JSON.parse(messagesData[i]["location"])
-  var newMarker = L.marker(pointerLocation,{icon: redMarker});
-  messagesData[i].slug = encodeURIComponent(messagesData[i]['message'])
-  newMarker.actionData = messagesData[i]
-  newMarker.bindPopup(messagesData[i]['message']);
-  newMarker.addEventListener("click",markerClicked);
-  newMarker.addTo(markerCluster);
+function buildMap(){
+  for (i in messagesData){
+    var locationString = messagesData[i]["location"];
+    if (locationString == ""){
+      continue;
+    }
+    try {
+      var pointerLocation = JSON.parse(messagesData[i]["location"]);
+    } catch (e) {
+      console.log(e);
+      continue;
+    }
+
+    var newMarker = L.marker(pointerLocation,{icon: redMarker});
+    messagesData[i].slug = encodeURIComponent(messagesData[i]['message'])
+    newMarker.actionData = messagesData[i]
+    newMarker.bindPopup(messagesData[i]['message']);
+    newMarker.addEventListener("click",markerClicked);
+    newMarker.addTo(markerCluster);
+  }
+  markerCluster.addTo(messageMap);
+  messageListElement.innerHTML = getMessagesListHtml(messagesData);
 }
-markerCluster.addTo(messageMap);
 
 function getVisablePoints(bounds){
   var msgsVisable = [];
@@ -100,15 +116,14 @@ function getMessagesListHtml(messages){
   return actionslisthtml;
 }
 
-function mapMoved() {
+async function mapMoved(e) {
   var messages = getVisablePoints(messageMap.getBounds());
   var msgHtml = getMessagesListHtml(messages);
   console.log("Move")
-  console.log(msgHtml)
   messageListElement.innerHTML = msgHtml;
 }
 
-function markerClicked(e){
+async function markerClicked(e){
   // return
   console.log(e)
   var lastMarker = document.querySelector(".Message-List .Message.first")
@@ -121,11 +136,7 @@ function markerClicked(e){
   }
 }
 
-messageListElement.innerHTML = getMessagesListHtml(messagesData);
+
 // map moved event handling
-messageMap.addEventListener("zoomend",function(e){
-  mapMoved()
-})
-messageMap.addEventListener("moveend",function(e){
-  mapMoved()
-})
+messageMap.addEventListener("zoomend",mapMoved)
+messageMap.addEventListener("moveend",mapMoved)

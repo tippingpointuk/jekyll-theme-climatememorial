@@ -17,6 +17,7 @@ layout: default
             integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
             crossorigin=""></script>
     <script src="{{ '/assets/js/leaflet.markercluster-src.js' | relative_url  }}"></script>
+    <script src="{{ '/assets/js/papaparse.min.js' | relative_url  }}" charset="utf-8"></script>
   </head>
   <body>
     <div class="Message-Map-Container">
@@ -26,15 +27,22 @@ layout: default
         </div>
       </div>
     </div>
+    <script src="{{ '/assets/js/message-map.js' | relative_url }}"></script>
     <script type="text/javascript">
-      {% assign messages = site.data.messages %}
+      var messagesCsvUrl = "{{ site.messages_csv }}";
+      let messagesData;
 
-      var messagesData = [
-        {% for a in messages %}
-        {{ a | jsonify }}{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-      ];
+      Papa.parse(messagesCsvUrl, {
+      	download: true,
+        header: true,
+      	complete: function(results) {
+      		messagesData = results.data.filter( function(l){
+            return l['location'] != "";
+          });
+          buildMap();
+      	}
+      });
     </script>
-    <script src="{{ '/assets/js/actions-map.js' | relative_url }}"></script>
+
   </body>
 </html>
