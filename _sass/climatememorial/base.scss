@@ -79,6 +79,7 @@ button,input[type=submit],input[type=reset],.button{
   color: $brand-text-color;
   font-family: $header-font-stack;
   padding: $spacing-unit*0.5 $spacing-unit;
+  gap: $spacing-unit;
   font-weight: bolder;
   font-size: $base-font-size * 1.5;
   &:visited{
