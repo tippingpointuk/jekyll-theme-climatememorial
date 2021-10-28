@@ -34,7 +34,7 @@ $background-color: #FFF0E3 !default;
   left: 0;
   .Message-List{
     display: flex;
-    max-height: 40vh;
+    max-height: 50vh;
     overflow-x: scroll;
     @media screen and (min-width: $article-width * 1.5){
       flex-direction: column;
