@@ -5,7 +5,7 @@ class="
   {% if include.block.full == true %}full{% endif %}"
 {% if include.block.background_image.size > 0 %}style="background-image:url('{{ include.block.background_image }}');"{% endif %}>
   <div class="Text">
-    <article>
+    <article class="{% if include.block.background_image.size > 0 %}Floating-Box{% endif %}">
       {{ include.block.text | liquify | markdownify }}
       {{ include.block.buttons | buttonify }}
     </article>

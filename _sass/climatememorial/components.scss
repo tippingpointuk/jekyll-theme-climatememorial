@@ -84,9 +84,8 @@
   }
 }
 
-
 .Memorial-Carousel{
-  height: calc(min(70vh,400px));
+  height: 100vh;
   .carousel-cell{
     &:not(img){
       width: 640px;
@@ -109,8 +108,8 @@
     min-height: 100vh;
     .Text{
       display: flex;
-      flex-direction: column;
       justify-content: center;
+      align-items: center;
       article{
         display: flex;
         flex-direction: column;
@@ -120,12 +119,11 @@
   }
   .Text{
     width: 100%;
-    background-color: rgba($background-color, 0.4);
+    // background-color: rgba($background-color, 0.4);
     article{
       text-align: center;
-      background-color: rgba($background-color, 0.8);
-      box-shadow: 0 0 30px $background-color;
-      border-radius: 30px;
+      background-color: $background-color;
+      padding: $spacing-unit *2 ;
     }
   }
   .Image{
@@ -141,6 +139,15 @@
   @media screen and (min-width: $article-width){
     display: flex;
     &.split > * {
+      flex: 0 0 50%;
+    }
+  }
+}
+
+.Pannel-Block {
+  @media screen and (min-width: $on-medium){
+    display: flex;
+    > * {
       flex: 0 0 50%;
     }
   }

@@ -8,7 +8,16 @@ article {
     color: $brand-color;
   }
 }
+main{
+  > :first-child{
+    padding-top: $action-bar-height-mobile * 1.5;
 
+
+    @media screen and (min-width: $on-small) {
+        padding-top: $action-bar-height * 1.5;
+    }
+  }
+}
 body{
   line-height: $base-line-height;
 }
