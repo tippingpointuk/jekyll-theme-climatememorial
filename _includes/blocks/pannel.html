@@ -1,4 +1,4 @@
-<div class="Block Pannel-Block">
+<div class="Block Pannel-Block  {{ include.block.classes }}">
   {% for b in include.block.blocks %}
     {% include blocks/{{b.type}}.html block=b %}
   {% endfor %}

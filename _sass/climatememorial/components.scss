@@ -1,29 +1,3 @@
-.Floating-Button {
-  position: fixed;
-  bottom: $spacing-unit * 2;
-  &.right{
-    right: $spacing-unit * 2;
-  }
-  &.left{
-    left: $spacing-unit * 2;
-  }
-  box-shadow: 0 0 $rounding grey;
-  padding:  $spacing-unit;
-  // padding: 0;
-  border-radius: 50%;
-  z-index: 9;
-  margin:0;
-  a {
-    color: $brand-text-color;
-    text-decoration: none;
-  }
-  svg{
-    stroke:  $brand-text-color;
-    stroke-width: 15px;
-    stroke-linecap: round;
-  }
-}
-
 .Soundscape-Player{
   width: 100%;
 }
@@ -83,9 +57,13 @@
     }
   }
 }
-
-.Memorial-Carousel{
-  height: 100vh;
+.full .Memorial-Carousel{
+  @media screen and (min-width: $on-medium){
+    height: 100vh;
+  }
+}
+ .Memorial-Carousel{
+   height: calc(min( 70vh, 400px ));
   .carousel-cell{
     &:not(img){
       width: 640px;
@@ -96,7 +74,12 @@
 }
 
 
+.Block{
+  &.full{
+    min-height: 100vh;
 
+  }
+}
 
 .Text-Block {
   background: $background-color no-repeat center center;
@@ -104,36 +87,20 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  &.full{
-    min-height: 100vh;
-    .Text{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      article{
-        display: flex;
-        flex-direction: column;
-        gap: $spacing-unit * 2;
-      }
-    }
-  }
+
   .Text{
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     // background-color: rgba($background-color, 0.4);
     article{
       text-align: center;
       background-color: $background-color;
       padding: $spacing-unit *2 ;
-    }
-  }
-  .Image{
-    background: $background-color no-repeat center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    @media screen and (max-width: $article-width){
-      height: 30vh;
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-unit * 2;
     }
   }
   @media screen and (min-width: $article-width){
@@ -141,6 +108,17 @@
     &.split > * {
       flex: 0 0 50%;
     }
+  }
+}
+
+.Image-Block{
+  background: $background-color no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  @media screen and (max-width: $on-medium){
+    height: 30vh;
   }
 }
 

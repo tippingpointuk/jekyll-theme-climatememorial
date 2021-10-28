@@ -1,8 +1,8 @@
 <div
 class="
   Text-Block
-  {% if include.block.image.size > 0 %}split{% endif %}
-  {% if include.block.full == true %}full{% endif %}"
+  {% if include.block.full == true %}full{% endif %}
+   {{ include.block.classes }}"
 {% if include.block.background_image.size > 0 %}style="background-image:url('{{ include.block.background_image }}');"{% endif %}>
   <div class="Text">
     <article class="{% if include.block.background_image.size > 0 %}Floating-Box{% endif %}">
@@ -10,8 +10,4 @@ class="
       {{ include.block.buttons | buttonify }}
     </article>
   </div>
-
-  {% if include.block.image.size > 0 %}
-  <div class="Image" style="background-image: url('{{ include.block.image | relative_url }}')"></div>
-  {% endif %}
 </div>
