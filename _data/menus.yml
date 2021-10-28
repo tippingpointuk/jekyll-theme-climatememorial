@@ -1,3 +1,5 @@
 header:
   - url: /add
     title: Send your message
+  - url: /add-photo
+    title: Add your photos
